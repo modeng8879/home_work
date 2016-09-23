@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>js</title>
+</head>
+<script language="javascript">
+function aa(){
+    var r=document.getElementsByName("r");
+    var r_list = '';
+    for(var i=0;i<r.length;i++){
+         if(r[i].checked){
+            r_list +=r[i].nextSibling.nodeValue+",";
+//         alert(r[i].value+","+r[i].nextSibling.nodeValue);
+// alert(r_list);
+       }
+
+    }
+    alert(r_list);
+
+}
+$("#table1 tr").each(function(i){
+        if($(this).find("input").attr('checked')=='checked'){
+            $(this).clone().prependTo("#table2");
+        }
+});
+</script>
+<body>
+<form name="form1" method="post" action="">
+<input type="checkbox" name="r" value="1">a<br>
+<input type="checkbox" name="r" value="b">b<br>
+<input type="checkbox" name="r" value="c">c<br>
+<input type="checkbox" name="r" value="d">d<br>
+<input type="checkbox" name="r" value="e">e<br>
+<input type="checkbox" name="r" value="f">f<br>
+<input type="checkbox" name="r" value="g">g<br>
+<input type="checkbox" name="r" value="h">h<br>
+<input type="checkbox" name="r" value="i">i<br>
+<input type="checkbox" name="r" value="j">j<br>
+<br>
+<input type="button" onclick="aa()" value="button">
+</form>
+
+
+
+<table id="table1">
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+   </table>
+
+   <table id="table2">
+
+   </table>
+</body>
+</html>
